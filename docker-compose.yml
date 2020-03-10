@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  odk:
+    container_name: trace_odk
+    image: '?'
+
+  dhis2:
+    container_name: trace_dhis2
+    image: '?'
+
+  odkToDhis2mediator:
+    container_name: trace_odk_to_dhis2_mediator
+    image: '?'
