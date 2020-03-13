@@ -1,14 +1,55 @@
 version: '3.3'
 
+volumes:
+  dhis-volume:
+
 services:
-  odk:
-    container_name: trace_odk
-    image: '?'
+  # odk:
+  #   container_name: trace_odk
+  #   image: '?'
 
-  dhis2:
-    container_name: trace_dhis2
-    image: '?'
+  # odkToDhis2mediator:
+  #   container_name: trace_odk_to_dhis2_mediator
+  #   image: '?'
 
-  odkToDhis2mediator:
-    container_name: trace_odk_to_dhis2_mediator
-    image: '?'
+  postgres:
+    container_name: dhis-postgres
+    image: kartoza/postgis:11.0-2.5
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_DB=dhis
+      - POSTGRES_PASSWORD=dhis
+      - POSTGRES_USER=dhis
+    ports:
+      - '5432:5432'
+    volumes:
+      - dhis-volume:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres']
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  # adapted from https://github.com/pgracio/dhis2-docker
+  dhis:
+    container_name: dhis-web
+    image: dhis2/dhis2-web:2.30-tomcat7-jre8-latest
+    environment:
+      JAVA_OPTS: '-Xmx1024m -Xms4000m'
+      DHIS2_HOME: '/opt/dhis2/config'
+      POSTGRES_DB: dhis
+    ports:
+      - '8081:8080'
+    depends_on:
+      - postgres
+    volumes:
+      - ./dhis2/wait-for-it.sh:/wait-for-it.sh
+      - ./dhis2/dhis.conf:/opt/dhis2/config/dhis.conf
+      - ./dhis2/server.xml:/usr/local/tomcat/conf/server.xml
+    entrypoint: ./wait-for-it.sh -t 0 postgres:5432 --
+    command: catalina.sh run # https://github.com/docker/compose/issues/3140
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080']
+      interval: 10s
+      timeout: 10s
+      retries: 12
