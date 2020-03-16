@@ -6,9 +6,7 @@ services:
     image: postgres:10
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
-      # - POSTGRES_DB=odk
-      # - POSTGRES_PASSWORD=odk
-      # - POSTGRES_USER=odk
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "5432:5432"
     volumes:
@@ -18,18 +16,4 @@ services:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
-      retries: 12
-
-  # adapted from https://github.com/pgracio/odk-docker
-  odk:
-    container_name: odk
-    build: .
-    ports:
-      - "8088:8080"
-    depends_on:
-      - postgres
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080"]
-      interval: 10s
-      timeout: 10s
       retries: 12
