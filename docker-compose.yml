@@ -29,20 +29,6 @@ services:
     image: jembi/openhim-console:1.13
     ports:
         - "9000:80"
-  
-  mapper:
-    container_name: mapper
-    image: jembi/openhim-mediator-mapping:v0.1.0
-    environment:
-      - OPENHIM_URL=https://core:8080
-      - OPENHIM_USERNAME=root@openhim.org
-      - OPENHIM_PASSWORD=openhim-password
-    ports:
-      - "3003:3003"
-    volumes:
-      - "./mapper-endpoints:/app/endpoints"
-    depends_on:
-      - core
     
   # container for executing config import scripts for setting up initial config
   mapper-config-importer:
@@ -62,5 +48,20 @@ services:
         target: /importer
     # This command will only attempt to import the OpenHIM config when the heartbeat responds with a 2xx
     command: sh -c "sleep 30s; node openhimConfig.js"
+    depends_on:
+      - core
+
+  mapper:
+    container_name: mapper
+    image: jembi/openhim-mediator-mapping:v0.1.0
+    restart: on-failure
+    environment:
+      - OPENHIM_URL=https://core:8080
+      - OPENHIM_USERNAME=root@openhim.org
+      - OPENHIM_PASSWORD=instant101
+    ports:
+      - "3003:3003"
+    volumes:
+      - "./mapper-endpoints:/app/endpoints"
     depends_on:
       - core
