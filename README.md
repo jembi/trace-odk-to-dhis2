@@ -36,8 +36,8 @@ To cleanup the project run the following command
 ### DHIS
 
 - url: <http://localhost:8081>
-- Username: **dhis**
-- Password: **dhis**
+- Username: **admin**
+- Password: **district**
 
 ### ODK
 
