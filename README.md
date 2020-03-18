@@ -19,7 +19,7 @@ To setup run the following command
 
 * Console: <http://localhost:9000>
 * Username: **root@openhim.org**
-* Password: **instant101**
+* Password: **trace101**
 
 ### DHIS
 
