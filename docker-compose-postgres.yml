@@ -1,11 +1,11 @@
 version: '3.3'
 
 volumes:
-  dhis-volume:
+  postgres-volume:
 
 services:
   postgres:
-    container_name: dhis-postgres
+    container_name: postgres
     image: kartoza/postgis:11.0-2.5
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
@@ -15,7 +15,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - dhis-volume:/var/lib/postgresql/data
+      - postgres-volume:/var/lib/postgresql/data
       - ./ODKAggregate/create_db_and_user.sql:/create_db_and_user.sql
       - ./dhis2/dhis2.sql:/dhis2.sql
     healthcheck:
