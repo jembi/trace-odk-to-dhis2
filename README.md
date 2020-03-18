@@ -29,16 +29,16 @@ To cleanup the project run the following command
 
 ### OpenHIM
 
-* Console: <http://localhost:9000>
-* Username: **root@openhim.org**
-* Password: **trace101**
+- Console: <http://localhost:9000>
+- Username: **root@openhim.org**
+- Password: **trace101**
 
 ### DHIS
 
-* url: <http://localhost:8081>
-* Username: **dhis**
-* Password: **dhis**
+- url: <http://localhost:8081>
+- Username: **dhis**
+- Password: **dhis**
 
 ### ODK
 
-* url: <http://localhost:8088/ODKAggregate>
+- url: <http://localhost:8088/ODKAggregate>
