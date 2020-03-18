@@ -4,11 +4,20 @@ set -e
 
 pathToFolder=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
-# start up openhim and dhis
+# start up postgres
+sudo docker-compose -f "$pathToFolder/docker-compose-postgres.yml" up -d
+
+# Create db and user
+docker exec dhis-postgres bash -c "sleep 30s; su postgres -c 'psql postgres -d dhis -c \"\\i dhis2.sql;\"'"
+
+# Start up DHIS
+sudo docker-compose -f "$pathToFolder/docker-compose-dhis.yml" up -d
+
+# start up openhim
 sudo docker-compose -f "$pathToFolder/docker-compose.yml" up -d
 
 # Create db and user
-docker exec dhis-postgres bash -c "sleep 30s; su postgres -c 'psql postgres -c \"\\i create_db_and_user.sql;\"'"
+docker exec dhis-postgres bash -c "su postgres -c 'psql postgres -c \"\\i create_db_and_user.sql;\"'"
 
 # start up ODK
 echo 'Creating the ODK container'
