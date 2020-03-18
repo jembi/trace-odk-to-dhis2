@@ -25,6 +25,12 @@ To cleanup the project run the following command
 ./compose destroy
 ```
 
+**Note:** The commands above assume that the system on which they are being run is configured to run docker commands without the **sudo** preface. If system is not configured for such, add the preface **sudo** to the commands like done below
+
+```bash
+sudo ./compose up
+```
+
 ## Accessing the services
 
 ### OpenHIM
