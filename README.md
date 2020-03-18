@@ -10,7 +10,19 @@ Useful Links:
 To setup run the following command
 
 ```bash
-./setup
+./compose up
+```
+
+To stop the containers run the following command
+
+```bash
+./compose down
+```
+
+To cleanup the project run the following command
+
+```bash
+./compose destroy
 ```
 
 ## Accessing the services
