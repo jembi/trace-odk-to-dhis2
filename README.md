@@ -29,4 +29,4 @@ To setup run the following command
 
 ### ODK
 
-* url: <http://localhost:8080/ODKAggregate>
+* url: <http://localhost:8088/ODKAggregate>
