@@ -1,22 +1,20 @@
 version: '3.3'
 
 volumes:
-  dhis-volume:
+  postgres-volume:
 
 services:
   postgres:
-    container_name: dhis-postgres
+    container_name: postgres
     image: kartoza/postgis:11.0-2.5
     environment:
       - PGDATA=/var/lib/postgresql/data/pgdata
-      - POSTGRES_DB=dhis
-      - POSTGRES_PASSWORD=dhis
-      - POSTGRES_USER=dhis
     ports:
       - '5432:5432'
     volumes:
-      - dhis-volume:/var/lib/postgresql/data
-      - ./ODKAggregate/create_db_and_user.sql:/create_db_and_user.sql
+      - postgres-volume:/var/lib/postgresql/data
+      - ./dhis2/create_dhis_db_and_user.sql:/create_dhis_db_and_user.sql
+      - ./ODKAggregate/create_odk_db_and_user.sql:/create_odk_db_and_user.sql
       - ./dhis2/dhis2.sql:/dhis2.sql
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
