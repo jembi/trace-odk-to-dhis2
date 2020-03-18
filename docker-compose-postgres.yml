@@ -17,6 +17,7 @@ services:
     volumes:
       - dhis-volume:/var/lib/postgresql/data
       - ./ODKAggregate/create_db_and_user.sql:/create_db_and_user.sql
+      - ./postgres/dhis2.sql:/dhis2.sql
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U postgres']
       interval: 5s
