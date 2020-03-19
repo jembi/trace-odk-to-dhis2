@@ -9,7 +9,7 @@ if [ "$1" == "up" ]; then
     docker-compose -f "$pathToFolder/docker-compose-postgres.yml" up -d
 
     # Create DHIS db and user
-    docker exec postgres bash -c "sleep 30s; su postgres -c 'psql postgres -c \"\\i create_dhis_db_and_user.sql;\"'"
+    docker exec postgres bash -c "while ! nc -z postgres 5432; do sleep 1; done; su postgres -c 'psql postgres -c \"\\i create_dhis_db_and_user.sql;\"'"
 
     # Create db and user
     docker exec postgres bash -c "su postgres -c 'psql postgres -d dhis -c \"\\i dhis2.sql;\"'"

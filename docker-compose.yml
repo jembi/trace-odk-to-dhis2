@@ -6,6 +6,11 @@ services:
     image: mongo:4.2
     volumes:
       - './data/mongo:/data/db'
+    healthcheck:
+      test: ['CMD-SHELL', 'mongo']
+      interval: 5s
+      timeout: 5s
+      retries: 12
 
   core:
     container_name: openhim-core
@@ -23,18 +28,28 @@ services:
       - "5052:5052"
     depends_on:
       - mongo
+    healthcheck:
+      test: ['CMD', 'curl', '-k', 'https://localhost:8080/heartbeat']
+      interval: 10s
+      timeout: 10s
+      retries: 12
 
   console:
     container_name: openhim-console
     image: jembi/openhim-console:1.13
     ports:
         - "9000:80"
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '80']
+      interval: 10s
+      timeout: 10s
+      retries: 12
 
   # container for executing config import scripts for setting up initial config
   mapper-config-importer:
     container_name: mapper-config-importer
     image: jembi/instantohie-config-importer
-    restart: on-failure
+    restart: 'no'
     environment:
       OPENHIM_API_HOSTNAME: 'openhim-core'
       OPENHIM_API_PORT: 8080
@@ -65,3 +80,8 @@ services:
       - "./mapper-endpoints:/app/endpoints"
     depends_on:
       - core
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '3003']
+      interval: 10s
+      timeout: 10s
+      retries: 12
