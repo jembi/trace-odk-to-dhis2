@@ -46,8 +46,8 @@ services:
       retries: 12
 
   # container for executing config import scripts for setting up initial config
-  mapper-config-importer:
-    container_name: mapper-config-importer
+  openhim-config-importer:
+    container_name: openhim-config-importer
     image: jembi/instantohie-config-importer
     restart: 'no'
     environment:
