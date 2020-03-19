@@ -1,0 +1,121 @@
+{
+  "Users": [
+    {
+      "groups": [
+        "admin"
+      ],
+      "firstname": "Super",
+      "surname": "User",
+      "email": "root@openhim.org",
+      "passwordAlgorithm": "sha512",
+      "passwordHash": "8185db5cb349140b5e9cade703008928ece7e060077350a17b914e9af116ee2926eae820cd8f75fa857ad6ed727b1b91fd062e0ebb5513782ac44e8bed453138",
+      "passwordSalt": "baa52e4650ead8c849692a50416b4b9b",
+      "expiry": null,
+      "locked": false,
+      "token": null,
+      "tokenType": null
+    }
+  ],
+  "Clients": [
+    {
+      "roles": [
+        "odk"
+      ],
+      "clientID": "odk",
+      "name": "odk",
+      "organization": "odk",
+      "softwareName": "odk",
+      "passwordAlgorithm": "sha512",
+      "passwordSalt": "4f2ae629589198f733ea1efc60ff64d7",
+      "passwordHash": "beea83231ef7288c6374c3b2d32e3587ffb2f8fe02b7d127f06303de4c853834161ea3b54316e6d5706d95f2c7498a80119a797de2f8d96b66caa27c7c88e936"
+    }
+  ],
+  "Channels": [
+    {
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE",
+        "PUT",
+        "OPTIONS",
+        "HEAD",
+        "TRACE",
+        "CONNECT",
+        "PATCH"
+      ],
+      "type": "http",
+      "allow": [
+        "odk"
+      ],
+      "whitelist": [],
+      "authType": "private",
+      "matchContentTypes": [],
+      "properties": [],
+      "txViewAcl": [],
+      "txViewFullAcl": [],
+      "txRerunAcl": [],
+      "status": "enabled",
+      "rewriteUrls": false,
+      "addAutoRewriteRules": true,
+      "autoRetryEnabled": false,
+      "autoRetryPeriodMinutes": 60,
+      "routes": [
+        {
+          "type": "http",
+          "status": "enabled",
+          "forwardAuthHeader": false,
+          "name": "Generic Mapping Mediator",
+          "secured": false,
+          "host": "mapper",
+          "port": 3003,
+          "path": "",
+          "pathTransform": "s/dhis-import\\///g",
+          "primary": true,
+          "username": "",
+          "password": ""
+        }
+      ],
+      "requestBody": true,
+      "responseBody": true,
+      "rewriteUrlsConfig": [],
+      "name": "Mapping mediator",
+      "urlPattern": "^/dhis-import/.*$",
+      "priority": 1,
+      "matchContentRegex": null,
+      "matchContentXpath": null,
+      "matchContentValue": null,
+      "matchContentJson": null,
+      "pollingSchedule": null,
+      "tcpHost": null,
+      "tcpPort": null,
+      "updatedBy": {
+        "id": "5e7320700959d600129065fa",
+        "name": "Super User"
+      },
+      "alerts": []
+    }
+  ],
+  "Mediators": [
+    {
+      "urn": "urn:mediator:generic_mapper",
+      "version": "1.0.0",
+      "name": "Mapping Mediator",
+      "description": "Generic OpenHIM Mapping Mediator",
+      "endpoints": [
+        {
+          "type": "http",
+          "status": "enabled",
+          "forwardAuthHeader": false,
+          "name": "Generic Mapping Mediator",
+          "host": "localhost",
+          "port": 3003
+        }
+      ],
+      "defaultChannelConfig": [],
+      "configDefs": [],
+      "_lastHeartbeat": "2020-03-19T07:50:10.134Z",
+      "_uptime": 961.105561834
+    }
+  ],
+  "ContactGroups": []
+}

@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  # adapted from https://github.com/pgracio/odk-docker
+  odk:
+    container_name: odk
+    build: .
+    ports:
+      - "8088:8080"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ODKAggregate"]
+      interval: 10s
+      timeout: 10s
+      retries: 12
