@@ -48,3 +48,5 @@ sudo ./compose up
 ### ODK
 
 - url: <http://localhost:8088/ODKAggregate>
+- Username: **odk**
+- password: **odk**
