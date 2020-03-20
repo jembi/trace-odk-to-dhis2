@@ -19,3 +19,17 @@ Start the service
 ```sh
 yarn start
 ```
+
+### Docker
+
+Build the docker image
+
+```sh
+docker build -t jembi/dedupe-service:latest .
+```
+
+Run the docker container
+
+```sh
+docker run -it -p 3310:3310 jembi/dedupe-service:latest
+```
