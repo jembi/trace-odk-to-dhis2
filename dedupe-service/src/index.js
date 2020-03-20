@@ -7,12 +7,12 @@ const logger = require('./logger')
 const util = require('./util')
 
 const app = express()
- 
-app.get('/verify', function (req, res) {
+
+app.get('/verify', function(req, res) {
   if (Object.keys(req.query).length === 0) {
     logger.warn('No query parameter identifiers supplied for lookup')
-    res.statusMessage = "No query parameter identifiers supplied for lookup";
-    res.status(400).end();
+    res.statusMessage = 'No query parameter identifiers supplied for lookup'
+    res.status(400).end()
     return
   }
 
@@ -37,7 +37,7 @@ app.get('/verify', function (req, res) {
   logger.info(`Request already processed: ${responsePayload.identifierExists}`)
   res.send(responsePayload)
 })
- 
+
 app.listen(config.port, () => {
   logger.info(`Server listening on port ${config.port}...`)
 })

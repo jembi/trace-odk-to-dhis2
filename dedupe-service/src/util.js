@@ -15,16 +15,16 @@ exports.parseStringToBoolean = (value, defaultValue) => {
   }
 }
 
-exports.identifierExists = (path) => {
+exports.identifierExists = path => {
   try {
     fs.accessSync(path)
     return true
-  } catch(err) {
+  } catch (err) {
     return false
   }
 }
 
-exports.setIdentifier = (path) => {
+exports.setIdentifier = path => {
   try {
     fs.writeFileSync(path, '')
     return true
