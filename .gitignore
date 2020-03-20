@@ -1,1 +1,3 @@
 data/
+dedupe-service/node_modules
+dedupe-service/identifiers
