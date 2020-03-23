@@ -85,3 +85,17 @@ services:
       interval: 10s
       timeout: 10s
       retries: 12
+
+  dedupe:
+    container_name: dedupe
+    build: dedupe-service/.
+    restart: on-failure
+    ports:
+      - "3310:3310"
+    volumes:
+      - "./dedupe-service/identifiers:/app/identifiers"
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '3310']
+      interval: 10s
+      timeout: 10s
+      retries: 12

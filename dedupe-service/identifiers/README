@@ -1,0 +1,3 @@
+This directory contains all the processed identifiers within the system.
+
+The files created are all empty and are purely created for lookup processes to verify if the id has been processed previously.
