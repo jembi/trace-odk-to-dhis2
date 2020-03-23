@@ -7,22 +7,22 @@ Useful Links:
 
 ## Setup
 
-To setup run the following command
+To **setup**, run the following command
 
 ```bash
 ./compose up
 ```
 
-To stop the containers run the following command
+To **stop** the containers, run the following command
+
+```bash
+./compose stop
+```
+
+To **cleanup** the project, run the following command
 
 ```bash
 ./compose down
-```
-
-To cleanup the project run the following command
-
-```bash
-./compose destroy
 ```
 
 **Note:** The commands above assume that the system on which they are being run is configured to run docker commands without the **sudo** preface. If system is not configured for such, add the preface **sudo** to the commands like done below

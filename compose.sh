@@ -26,10 +26,10 @@ if [ "$1" == "up" ]; then
     # start up ODK
     echo 'Creating the ODK container'
     docker-compose -f "$pathToFolder/docker-compose-odk.yml" up -d
-elif [ "$1" == "down" ]; then
+elif [ "$1" == "stop" ]; then
     docker-compose -f "$pathToFolder"/docker-compose.yml -f "$pathToFolder"/docker-compose-odk.yml -f "$pathToFolder"/docker-compose-postgres.yml -f "$pathToFolder"/docker-compose-dhis.yml stop
-elif [ "$1" == "destroy" ]; then
+elif [ "$1" == "down" ]; then
     docker-compose -f "$pathToFolder"/docker-compose.yml -f "$pathToFolder"/docker-compose-odk.yml -f "$pathToFolder"/docker-compose-postgres.yml -f "$pathToFolder"/docker-compose-dhis.yml down -v
 else
-    echo "Valid options are: up, down, or destroy"
+    echo "Valid options are: up, stop, or down"
 fi
