@@ -11,7 +11,7 @@ if [ "$1" == "up" ]; then
     # Create DHIS db and user
     docker exec postgres bash -c "while ! nc -z postgres 5432; do sleep 1; done; su postgres -c 'psql postgres -c \"\\i create_dhis_db_and_user.sql;\"'"
 
-    # Create db and user
+    # import DHIS database
     docker exec postgres bash -c "su postgres -c 'psql postgres -d dhis -c \"\\i dhis2.sql;\"'"
 
     # Start up DHIS
@@ -22,6 +22,9 @@ if [ "$1" == "up" ]; then
 
     # Create ODK db and user
     docker exec postgres bash -c "su postgres -c 'psql postgres -c \"\\i create_odk_db_and_user.sql;\"'"
+
+    # import ODK database
+    docker exec postgres bash -c "useradd odk; su odk -c 'psql odk -c \"\\i odk.sql;\"'"
 
     # start up ODK
     echo 'Creating the ODK container'
