@@ -35,6 +35,9 @@ sudo ./compose up
 
 ### OpenHIM
 
+- Core Router (TLS): <https://localhost:5000>
+- Core Router: <http://localhost:5001>
+- Core API: <https://localhost:8888>
 - Console: <http://localhost:9000>
 - Username: **root@openhim.org**
 - Password: **trace101**
@@ -47,6 +50,6 @@ sudo ./compose up
 
 ### ODK
 
-- url: <http://localhost:8088/ODKAggregate>
+- url: <http://localhost:8080>
 - Username: **odk**
 - password: **odk**

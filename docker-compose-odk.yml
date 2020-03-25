@@ -4,11 +4,11 @@ services:
   # adapted from https://github.com/pgracio/odk-docker
   odk:
     container_name: odk
-    build: .
+    build: ODKAggregate/.
     ports:
       - "8080:8080"
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/ODKAggregate"]
+      test: ["CMD", "curl", "-f", "http://localhost:8080"]
       interval: 10s
       timeout: 10s
       retries: 12
