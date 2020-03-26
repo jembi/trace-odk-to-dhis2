@@ -1,0 +1,19 @@
+{
+  "constants.program": "program",
+  "constants.status": "status",
+  "lookupRequests.dhisFacility.organisationUnits[0].id": "orgUnit",
+  "lookupRequests.dhisFacility.organisationUnits[0].displayName": "orgUnitName",
+  "constants.attrAge": "dataValues[0].dataElement",
+  "constants.attrSex": "dataValues[1].dataElement",
+  "constants.attrHIVStatus": "dataValues[2].dataElement",
+  "constants.attrResults": "dataValues[3].dataElement",
+  "constants.attrDateTestSubmission": "dataValues[4].dataElement",
+  "constants.attrDateTestRTRI": "dataValues[5].dataElement",
+  "requestBody.data[0].age": "dataValues[0].value",
+  "requestBody.data[0].sex": "dataValues[1].value",
+  "requestBody.data[0].hiv_status": "dataValues[2].value",
+  "requestBody.data[0].rtri_result": "dataValues[3].value",
+  "requestBody.data[0].submission_date": "dataValues[4].value",
+  "requestBody.data[0].rtri_testdate": "dataValues[5].value",
+  "requestBody.data[0].rtri_testdate": "eventDate"
+}

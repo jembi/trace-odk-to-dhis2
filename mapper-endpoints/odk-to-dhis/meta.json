@@ -1,0 +1,38 @@
+{
+  "name": "ODK to DHIS2 Tracker",
+  "endpoint": {
+    "pattern": "/odk"
+  },
+  "transformation": {
+    "input": "JSON",
+    "output": "JSON"
+  },
+  "requests": {
+    "lookup": [
+      {
+        "id": "dhisFacility",
+        "config": {
+          "method": "get",
+          "url": "http://dhis-web:8080/api/organisationUnits?filter=code:eq:730851",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
+          }
+        }
+      }
+    ],
+    "response": [
+      {
+        "id": "dhisAddEvent",
+        "config": {
+          "method": "post",
+          "url": "http://dhis-web:8080/api/events",
+          "headers": {
+            "Content-Type": "application/json",
+            "Authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
+          }
+        }
+      }
+    ]
+  }
+}
