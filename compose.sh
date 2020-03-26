@@ -9,10 +9,10 @@ if [ "$1" == "up" ]; then
     docker-compose -f "$pathToFolder/docker-compose-postgres.yml" up -d
 
     # Create DHIS db and user
-    docker exec postgres bash -c "while ! nc -z postgres 5432; do sleep 1; done; su postgres -c 'psql postgres -c \"\\i create_dhis_db_and_user.sql;\"'"
+    docker exec postgres bash -c "while ! nc -z postgres 5432; do sleep 1; done; su postgres -c 'psql postgres -f create_dhis_db_and_user.sql'"
 
     # import DHIS database
-    docker exec postgres bash -c "su postgres -c 'psql postgres -d dhis -c \"\\i dhis2.sql;\"'"
+    docker exec postgres bash -c "su postgres -c 'psql postgres -d dhis -f dhis2.sql'"
 
     # Start up DHIS
     docker-compose -f "$pathToFolder/docker-compose-dhis.yml" up -d
@@ -21,10 +21,10 @@ if [ "$1" == "up" ]; then
     docker-compose -f "$pathToFolder/docker-compose.yml" up -d
 
     # Create ODK db and user
-    docker exec postgres bash -c "su postgres -c 'psql postgres -c \"\\i create_odk_db_and_user.sql;\"'"
+    docker exec postgres bash -c "su postgres -c 'psql postgres -f create_odk_db_and_user.sql'"
 
     # import ODK database
-    docker exec postgres bash -c "useradd odk; su odk -c 'psql odk -c \"\\i odk.sql;\"'"
+    docker exec postgres bash -c "su postgres -c 'psql postgres -d odk -f odk.sql'"
 
     # start up ODK
     echo 'Creating the ODK container'
