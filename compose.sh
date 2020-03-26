@@ -11,6 +11,10 @@ if [ "$1" == "up" ]; then
     # Create DHIS db and user
     docker exec postgres bash -c "while ! nc -z postgres 5432; do sleep 1; done; su postgres -c 'psql postgres -f create_dhis_db_and_user.sql'"
 
+    docker exec -it postgres bash -c "echo 'max_locks_per_transaction=200' >> /etc/postgresql/11/main/postgresql.conf"
+
+    docker restart postgres
+
     # import DHIS database
     docker exec postgres bash -c "su postgres -c 'psql postgres -d dhis -f dhis2.sql'"
 
