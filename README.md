@@ -35,6 +35,9 @@ sudo ./compose up
 
 ### OpenHIM
 
+- Core Router (TLS): <https://localhost:5000>
+- Core Router: <http://localhost:5001>
+- Core API: <https://localhost:8888>
 - Console: <http://localhost:9000>
 - Username: **root@openhim.org**
 - Password: **trace101**
@@ -47,4 +50,34 @@ sudo ./compose up
 
 ### ODK
 
-- url: <http://localhost:8088/ODKAggregate>
+- url: <http://localhost:8080>
+- Username: **odk**
+- password: **odk**
+
+## Database backups
+
+If changes are required within the database that needs to be part of the import, we will have to create a new export of the database. Execute the below commands to create a new database dump
+
+This will create a new dump of the database in the current location of the existing SQL dump. The existing SQL dump will be overwritten. Because this SQL dump is volumed, the changes will reflect in the host machine SQL dump.
+
+### ODK
+
+```sh
+docker exec -it postgres sh;
+su postgres;
+pg_dump odk > ~/odk.sql;
+exit
+exit
+docker cp postgres:/var/lib/postgresql/odk.sql ./
+```
+
+### DHIS2
+
+```sh
+docker exec -it postgres sh;
+su postgres;
+pg_dump dhis > ~/dhis2.sql;
+exit
+exit
+docker cp postgres:/var/lib/postgresql/dhis2.sql ./
+```

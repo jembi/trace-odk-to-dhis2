@@ -20,7 +20,7 @@ services:
       - mongo_atnaUrl=mongodb://mongo/openhim
       - api_authenticationTypes=["token", "basic"]
     ports:
-      - "8080:8080"
+      - "8888:8080"
       - "5000:5000"
       - "5001:5001"
       - "5050:5050"
@@ -37,6 +37,8 @@ services:
   console:
     container_name: openhim-console
     image: jembi/openhim-console:1.13
+    volumes:
+      - './openhim/default.json:/usr/share/nginx/html/config/default.json'
     ports:
         - "9000:80"
     healthcheck:
