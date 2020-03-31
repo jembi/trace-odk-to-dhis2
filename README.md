@@ -1,6 +1,6 @@
 # ODK to DHIS2 Infrastructure Scripts
 
-The following scripts will setup the entire tutorial architecture. Very few manual steps are required. To setup the system from scratch should take less than 30 minutes on a decent internet connection. You will require about 3GB of bandwidth.
+The following scripts will set up the entire tutorial architecture. Very few manual steps are required. To set up the system from scratch should take less than 30 minutes on a decent internet connection. You will require about 3GB of bandwidth.
 
 Prerequisites:
 
@@ -67,35 +67,35 @@ Useful Links:
 - Username: **admin**
 - Password: **district**
 
-### Update Visualisations
+### Update Visualizations
 
-DHIS2 caches data constantly and only rebuilds visualisations once a day. Therefore, when you want to see your recently captured data pulling through to your visualisations you will have to by pass this caching. The steps to do this are to follow.
+DHIS2 caches data constantly and only rebuilds visualizations once a day. Therefore, when you want to see your recently captured data pulling through to your visualizations you will have to bypass this caching. The steps to do this are to follow.
 
 #### Perform Data Cleanup
 
 The first thing to do on DHIS2 when trying to update data is to clean out the caches then rebuild the resource and analytics tables.
 
-On the DHIS2 console open the `Apps` menu in the top right corner and click on the `Data Administration` App. First, we will clean out the caches. Click the `Maintenance` menu option on the left. Check all the check boxes and then click `Perform Maintenance` and wait until the maintenance succeeds.
+On the DHIS2 console open the `Apps` menu in the top right corner and click on the `Data Administration` App. First, we will clean out the caches. Click the `Maintenance` menu option on the left. Check all the checkboxes and then click `Perform Maintenance` and wait until the maintenance succeeds.
 
 Next, click the `Resource Tables` menu option on the left then click `Generate Tables` and wait until the table generation succeeds.
 
 Finally, click on the `Analytics Tables` menu option. Click `Start Export` and wait until the export succeeds.
 
-#### Update Specific Visualisations
+#### Update Specific Visualizations
 
-The previous step won't result in any changes on the dashboard. To check the data has come through you will need to navigate to a specific visualization's page and refresh it (`ctrl + F5`).
+The previous step won't result in any changes to the dashboard. To check the data has come through you will need to navigate to a specific visualization's page and refresh it (`ctrl + F5`).
 
-If this does not work, change one of the visualisations parameters, such as increasing the period of your data then click the `update` button.
+If this does not work, change one of the parameters of the visualization, such as increasing the period of your data then click the `update` button.
 
-> You may need to change a few parameters before the new data comes through. And every time you change parameters DHIS2 caches that specific configuration so in a single session you may need to come up with a couple fresh changes.
+> You may need to change a few parameters before the new data comes through. And every time you change parameters DHIS2 caches that specific configuration so in a single session you may need to come up with a couple of fresh changes.
 
-If this doesn't work, try to change your computers date to one day into the future. This will force you to login again but will also hopefully rebuild all visualizations.
+If this doesn't work, try to change the date of your computer to one day into the future. This will force you to login again but will also hopefully rebuild all visualizations.
 
 > Do not rely on this method as it may lead to data loss and inconsistencies.
 
 ### DHIS2 Facilities
 
-This DHIS2 instance contains a subset of health related facilities registered in South Africa. Only the full facility lists of the Eastern Cape and Western Cape remain. The other provinces have had some or all their facility data removed in order to reduce the database size of this tutorial.
+This DHIS2 instance contains a subset of health-related facilities registered in South Africa. Only the full facility lists of the Eastern Cape and Western Cape remain. The other provinces have had some or all their facility data removed to reduce the database size of this tutorial.
 
 The `Event` data included in the database dump is all linked to the following four facilities:
 
@@ -135,17 +135,17 @@ To collect data in ODK, users need the mobile application `ODK Collect` availabl
 
 Before we configure the ODK Collect app, we need to get the **IP address** to which our local machine is broadcasting the ODK Aggregate API.
 
-To do this, open your Ubuntu `Settings` and click on the `Wi-Fi` menu option. On the Wi-Fi page find the Wi-Fi network that you are connected to and click the `gear icon` to open up the network details. In the new modal on the `details` tab, find the `IPv4 Address`. This value is your computers broadcasting IP. Take note of this value as we will need it in a future step.
+To do this, open your Ubuntu `Settings` and click on the `Wi-Fi` menu option. On the Wi-Fi settings page, find the Wi-Fi network that you are connected to and click the `gear icon` to open up the network details. In the new modal on the `details` tab, find the `IPv4 Address`. This value is your computer's broadcasting IP. Take note of this value as we will need it in a future step.
 
 #### Connect ODK Collect to ODK Aggregate
 
-Once you have downloaded ODK Collect, open the App and click on the kebab menu (3 dot icon) in the top right. Click on `General Settings` from the list. On this page click on the URL field. This is where you need to input your computer's IP address. Start with `http://` then your `IPv4 Address` and finally add `:8080` to connect to the right port. Your URL should look something like this `http://192.168.123.123:8080`. Click `OK` to save your URL. Next click on the `Username` field. Input the value `odk` then click `OK`. Finally click on the `Password` field. Input the value `odk`, again, and click `OK`.
+Once you have downloaded ODK Collect, open the App and click on the kebab menu (3 dot icon) in the top right. Click on `General Settings` from the list. On this page click on the URL field. This is where you need to input your computer's IP address. Start with `http://` then your `IPv4 Address` and finally add `:8080` to connect to the right port. Your URL should look something like this `http://192.168.123.123:8080`. Click `OK` to save your URL. Next click on the `Username` field. Input the value `odk` then click `OK`. Finally, click on the `Password` field. Input the value `odk`, again, and click `OK`.
 
-Your app should now be able to connect to the server. To test this, click the back button twice on your device to return to the main menu. Here you should see a list of `Form` options. Click on the `Get Blank Form` option. On this page you should only see one form option: **TRACE-ODK-DHIS2 Data collection**. Check the checkbox on the right then click the button labelled `Get Selected`. You should see a notification popup indicating form download **Success**. Click `OK` to dismiss.
+Your app should now be able to connect to the server. To test this, click the back button twice on your device to return to the main menu. Here you should see a list of `Form` options. Click on the `Get Blank Form` option. On this page, you should only see one form option: **TRACE-ODK-DHIS2 Data collection**. Check the checkbox on the right then click the button labeled `Get Selected`. You should see a notification popup indicating form download **Success**. Click `OK` to dismiss.
 
 Now we can collect data for ODK Aggregate instance. On the main menu of ODK Collect click the `Fill Blank Form` option, then click on the **TRACE-ODK-DHIS2 Data collection** form. This will open up the form and allow you to fill in details. Fill in the details on this page. When all the required form fields are complete, you can navigate to the next page of this form by `Swiping` the screen to the left.
 
-After completing all the form pages you will reach the final screen with a button to `Save Form and Exit`. Click this option to return to the main menu. You will now see that the option `Edit Saved Form` has a `(1)` appended to it. If you need to make changes to your form do so there. If not, click on the option `Send Finalised Form`. Check the checkbox on the right of the filled in form, then click `Send Selected`. Click back to return to the main menu.
+After completing all the form pages you will reach the final screen with a button to `Save Form and Exit`. Click this option to return to the main menu. You will now see that the option `Edit Saved Form` has a `(1)` appended to it. If you need to make changes to your form do so there. If not, click on the option `Send Finalised Form`. Check the checkbox on the right of the filled-in form, then click `Send Selected`. Click back to return to the main menu.
 
 We can now view our data on ODK Aggregate. On your computer, open a browser and navigate to your [ODK Aggregate instance](http://localhost:8080). If you haven't logged in before, do so now. The first page of ODK Aggregate should be the form submissions page. Here you should see the form data you submitted.
 
@@ -153,7 +153,7 @@ We can now view our data on ODK Aggregate. On your computer, open a browser and 
 
 After submitting data to ODK Aggregate, this data should automatically be forwarded to DHIS2 via the OpenHIM. To confirm this, log into the OpenHIM Console at <http://localhost:9000>. Once on the console click on the `Transactions Log` option in the menu on the left. Your data should appear within a transaction on this page.
 
-> Note: ODK appears to have a bug preventing the first form data being published to the down stream service. This is easily overcome by sending through a second data set.
+> Note: ODK appears to have a bug preventing the first form from being published to the downstream service. This is easily overcome by sending through a second data set.
 
 If your data is not showing up on the OpenHIM Transaction log, open the ODK Aggregate Console and click on the `Form Management` tab. Then click on the subordinate `Published Data` tab. Issues with the Publisher can be diagnosed here.
 
