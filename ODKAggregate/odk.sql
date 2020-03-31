@@ -582,10 +582,10 @@ COPY public."TRACE_ODK_DHIS2_DATA_COLLECTION_CORE" ("_URI", "_CREATOR_URI_USER",
 --
 
 COPY public._backend_actions ("_URI", "_CREATOR_URI_USER", "_CREATION_DATE", "_LAST_UPDATE_URI_USER", "_LAST_UPDATE_DATE", "LAST_REVISION") FROM stdin;
-rid:watchdog_start	aggregate.opendatakit.org:web-service	2020-03-25 14:18:09.113	aggregate.opendatakit.org:web-service	2020-03-31 09:24:26.4	2020-03-31 09:24:26.399
-rid:watchdog_enqueue	aggregate.opendatakit.org:web-service	2020-03-25 14:24:29.404	aggregate.opendatakit.org:web-service	2020-03-31 09:24:27.243	2020-03-31 09:24:27.232
 uuid:4f0a843c-42ca-45ea-be47-90343c4812be	aggregate.opendatakit.org:web-service	2020-03-31 09:24:27.312	\N	2020-03-31 09:24:27.312	1970-01-01 00:00:00
-rid:watchdog_scheduling	aggregate.opendatakit.org:web-service	2020-03-25 14:24:29.424	aggregate.opendatakit.org:web-service	2020-03-31 09:27:14.501	2020-03-31 09:39:27.232
+rid:watchdog_start	aggregate.opendatakit.org:web-service	2020-03-25 14:18:09.113	aggregate.opendatakit.org:web-service	2020-03-31 11:08:27.808	2020-03-31 11:08:27.807
+rid:watchdog_enqueue	aggregate.opendatakit.org:web-service	2020-03-25 14:24:29.404	aggregate.opendatakit.org:web-service	2020-03-31 11:09:09.696	2020-03-31 11:09:09.67
+rid:watchdog_scheduling	aggregate.opendatakit.org:web-service	2020-03-25 14:24:29.424	aggregate.opendatakit.org:web-service	2020-03-31 11:09:32.852	2020-03-31 11:24:09.67
 \.
 
 
@@ -723,6 +723,7 @@ uuid:6fdc53fe-8d89-4219-a279-fceef214ff9d	uid:odk|2020-03-25T14:18:06.878303Z	20
 --
 
 COPY public._form_service_cursor_2 ("_URI", "_CREATOR_URI_USER", "_CREATION_DATE", "_LAST_UPDATE_URI_USER", "_LAST_UPDATE_DATE", "URI_MD5_FORM_ID", "AURI_SERVICE", "EXT_SERVICE_TYPE", "EXTERNAL_SERVICE_OPTION", "IS_EXTERNAL_SERVICE_PREPARED", "OPERATIONAL_STATUS", "RETRY_STATUS", "ESTABLISHMENT_DATETIME", "UPLOAD_COMPLETED", "LAST_UPLOAD_PERSISTENCE_CURSOR", "LAST_UPLOAD_KEY", "LAST_STREAMING_PERSISTENCE_CURSOR", "LAST_STREAMING_KEY", "FORM_ID") FROM stdin;
+uuid:801bbd60-e47f-4f43-9579-07c89815f953	uid:odk|2020-03-25T14:18:06.878303Z	2020-03-31 11:10:01.707	aggregate.opendatakit.org:web-service	2020-03-31 11:10:01.847	md5:8066dbca4385ac55dce36096888514c7	uuid:76209968-b2d0-426b-a9ee-e988b4c8a3cb	JSON_SERVER	UPLOAD_ONLY	t	COMPLETED	\N	2020-03-31 11:10:01.707	t	\N	\N	\N	\N	TRACE-ODK-DHIS2-Data-Collection
 \.
 
 
@@ -751,6 +752,8 @@ uuid:3f4ee443-e71c-40f7-a011-4f4c0b86c7d6	aggregate.opendatakit.org:web-service	
 --
 
 COPY public._json_server3 ("_URI", "_CREATOR_URI_USER", "_CREATION_DATE", "_LAST_UPDATE_URI_USER", "_LAST_UPDATE_DATE", "AUTH_KEY", "OWNER_EMAIL", "SERVER_URL", "BINARY_OPTION") FROM stdin;
+uuid:38257215-243b-4011-beba-096c11ad81fc	uid:odk|2020-03-25T14:18:06.878303Z	2020-03-31 10:55:35.322	uid:odk|2020-03-25T14:18:06.878303Z	2020-03-31 10:55:35.328		mailto:N/A	http://openhim-core:5001/dhis-import/odk	PROVIDE_LINKS
+uuid:76209968-b2d0-426b-a9ee-e988b4c8a3cb	uid:odk|2020-03-25T14:18:06.878303Z	2020-03-31 11:10:01.707	uid:odk|2020-03-25T14:18:06.878303Z	2020-03-31 11:10:01.721		mailto:N/A	http://openhim-core:5001/dhis-import/odk	PROVIDE_LINKS
 \.
 
 
