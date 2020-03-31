@@ -25,7 +25,7 @@ To cleanup the project run the following command
 ./compose destroy
 ```
 
-**Note:** The commands above assume that the system on which they are being run is configured to run docker commands without the **sudo** preface. If system is not configured for such, add the preface **sudo** to the commands like done below
+**Note:** The commands above assume that the system on which they are being run is configured to run docker commands without the **sudo** preface. If your system is not configured as such, add the **sudo** preface to the commands as seen below:
 
 ```bash
 sudo ./compose up
