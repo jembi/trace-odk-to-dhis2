@@ -80,6 +80,14 @@ After completing all the form pages you will reach the final screen with a butto
 
 We can now view our data on ODK Aggregate. On your computer, open a browser and navigate to your [ODK Aggregate instance](http://localhost:8080). If you haven't logged in before, do so now. The first page of ODK Aggregate should be the form submissions page. Here you should see the form data you submitted.
 
+##### Confirm data forwarding to DHIS2
+
+After submitting data to ODK Aggregate, this data should automatically be forwarded to DHIS2 via the OpenHIM. To confirm this, log into the OpenHIM Console at <http://localhost:9000>. Once on the console click on the `Transactions Log` option in the menu on the left. Your data should appear within a transaction on this page.
+
+> Note: ODK appears to have a bug preventing the first form data being published to the down stream service. This is easily overcome by sending through a second data set.
+
+If your data is not showing up on the OpenHIM Transaction log, open the ODK Aggregate Console and click on the `Form Management` tab. Then click on the subordinate `Published Data` tab.
+
 ## Database backups
 
 If changes are required within the database that needs to be part of the import, we will have to create a new export of the database. Execute the below commands to create a new database dump
