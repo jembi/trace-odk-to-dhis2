@@ -63,21 +63,11 @@ This will create a new dump of the database in the current location of the exist
 ### ODK
 
 ```sh
-docker exec -it postgres sh;
-su postgres;
-pg_dump odk > ~/odk.sql;
-exit
-exit
-docker cp postgres:/var/lib/postgresql/odk.sql ./
+docker exec postgres bash -c "su postgres -c 'pg_dump odk'" > ODKAggregate/odk.sql
 ```
 
 ### DHIS2
 
 ```sh
-docker exec -it postgres sh;
-su postgres;
-pg_dump dhis > ~/dhis2.sql;
-exit
-exit
-docker cp postgres:/var/lib/postgresql/dhis2.sql ./
+docker exec postgres bash -c "su postgres -c 'pg_dump dhis'" > dhis2/dhis2.sql
 ```
