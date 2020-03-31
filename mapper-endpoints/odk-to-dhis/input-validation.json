@@ -1,38 +1,19 @@
 {
   "type": "object",
   "properties": {
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id_number": {
-            "type": "number"
+    "requestBody": {
+      "type": "object",
+      "properties": {
+        "dedupeLookup": {
+          "type": "object",
+          "properties": {
+            "identifierExists": {
+              "type": "boolean",
+              "enum": [false]
+            }
           },
-          "age": {
-            "type": "number"
-          },
-          "sex": {
-            "type": "string"
-          },
-          "health_id": {
-            "type": "string"
-          },
-          "hiv_status": {
-            "type": "string"
-          },
-          "rtri_result": {
-            "type": "string"
-          },
-          "facility_id": {
-            "type": "string"
-          },
-          "submission_date": {
-            "type": "string"
-          },
-          "rtri_testdate": {
-            "type": "string"
-          }
+          "required": ["identifierExists"],
+          "errorMessage": "The identifier/s has already been processed."
         }
       }
     }
