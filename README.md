@@ -1,11 +1,16 @@
 # ODK to DHIS2 Infrastructure Scripts
 
-Useful Links:
+The following scripts will setup the entire tutorial architecture. Very few manual steps are required. To setup the system from scratch should take less than 30 minutes on a decent internet connection. You will require about 3GB of bandwidth.
 
-- [ODK Central Docs](https://docs.opendatakit.org/getting-started/)
-- [DHIS2 Docs](https://docs.dhis2.org/2.33/en/index.html)
+Prerequisites:
 
-## Setup
+- Ubuntu 18.04 Desktop
+- [Docker Compose](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04) installed
+- An Android smartphone (with access to Google Play Store)
+- Wi-Fi access for Computer and Smartphone
+- Experience working on Linux Terminal
+
+## System Setup
 
 To **setup**, run the following command
 
