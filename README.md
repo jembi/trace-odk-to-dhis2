@@ -33,6 +33,11 @@ sudo ./compose up
 
 ## OpenHIM
 
+Useful Links:
+
+- [OpenHIM Docs](http://openhim.org/)
+- [OpenHIM First Login](http://openhim.org/docs/getting-started/install#first-time-login)
+
 ### Accessing the **OpenHIM Core** services
 
 - Core Router (TLS): <https://localhost:5000>
@@ -46,6 +51,10 @@ sudo ./compose up
 - Password: **trace101**
 
 ## DHIS2
+
+Useful Links:
+
+- [DHIS2 Docs](https://docs.dhis2.org/2.33/en/index.html)
 
 ### Accessing the DHIS2 Console
 
@@ -97,6 +106,11 @@ If you wish to add data to different facilities, you can find a list of availabl
 > Make sure your chosen facility has a `coordinates` field. This field is required if you want the facility data to appear on any map. The coordinates field for the Durban example above is as follows: `<coordinates>[31.011662,-29.848529]</coordinates>`
 
 ## ODK
+
+Useful Links:
+
+- [ODK Aggregate Docs](https://docs.opendatakit.org/getting-started/)
+- [ODK Collect Docs](https://docs.opendatakit.org/collect-connect-aggregate/)
 
 ### Accessing the ODK Aggregate Console
 
