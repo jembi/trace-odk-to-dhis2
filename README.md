@@ -117,9 +117,9 @@ The `Event` data included in the database dump is all linked to the following fo
 | wc Beaufort West CDC | 236115 | h8bBL7YEs5j |
 | wc Wynberg Clinic | 352533 | pVVKnK9IOZX |
 
-If you wish to add data to different facilities, you can find a list of available facilities at <http://localhost:8081/api/organisatioUnits>. To get your chosen facility's `facility code` copy the facility's DHIS2 ID and append this to the previous url. For example, <http://localhost:8081/api/organisatioUnits/h4rBGnDtQMZ> - which corresponds to **kz Durban University of Technology Clinic**.
+If you wish to add data to different facilities, you can find a list of available facilities at <http://localhost:8081/api/organisatioUnits>. To get your chosen facility's `facility code` copy the facility's DHIS2 ID and append this to the previous url. For example, <http://localhost:8081/api/organisationUnits/Wam5frBOIS4> - which corresponds to **wc Saldanha Bay Port Health**, code `657051`.
 
-> Make sure your chosen facility has a `coordinates` field. This field is required if you want the facility data to appear on any map. The coordinates field for the Durban example above is as follows: `<coordinates>[31.011662,-29.848529]</coordinates>`
+> Make sure your chosen facility has a `geometry` field. This field is required if you want the facility data to appear on any map. The coordinates field for the Saldanha example above is as follows: `<geometry>POINT (17.946725 -33.02041)</geometry>`
 
 ## ODK
 

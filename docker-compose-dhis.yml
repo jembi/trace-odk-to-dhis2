@@ -4,7 +4,7 @@ version: '3.3'
 services:
   dhis:
     container_name: dhis-web
-    image: researchtriangle/dhis2-web:2.33.2-tomcat7-jre8-latest
+    image: researchtriangle/dhis2-web:2.33.2-tomcat7-jre8-latest@sha256:4690492bedef875ccb0d7b181eeb5caf9ed8d062c33ea7087aac980b9c92913f
     environment:
       JAVA_OPTS: '-Xmx1024m -Xms4000m'
       DHIS2_HOME: '/opt/dhis2/config'

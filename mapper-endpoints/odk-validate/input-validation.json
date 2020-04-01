@@ -1,0 +1,52 @@
+{
+  "type": "object",
+  "properties": {
+    "requestBody": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id_number": {
+                "type": "string"
+              },
+              "age": {
+                "type": "number",
+                "minimum": 16,
+                "maximum": 120
+              },
+              "sex": {
+                "type": "string",
+                "enum": ["female", "male", "other"]
+              },
+              "health_id": {
+                "type": "string",
+                "nullable": true
+              },
+              "hiv_status": {
+                "type": "string"
+              },
+              "rtri_result": {
+                "type": "string",
+                "enum": ["recent", "long_term", "inconclusive"]
+              },
+              "facility_id": {
+                "type": "string",
+                "pattern": "^\\d*$"
+              },
+              "submission_date": {
+                "type": "string"
+              },
+              "rtri_testdate": {
+                "type": "string"
+              }
+            },
+            "required": ["id_number", "age", "sex", "rtri_result", "facility_id", "submission_date", "rtri_testdate"]
+          }
+        }
+      }
+    }
+  }
+}

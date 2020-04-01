@@ -1,0 +1,40 @@
+{
+  "constants.program": "program",
+  "constants.status": "status",
+  "lookupRequests.dhisFacility.organisationUnits[0].id": "orgUnit",
+  "lookupRequests.dhisFacility.organisationUnits[0].displayName": "orgUnitName",
+  "constants.attrAge": "dataValues[0].dataElement",
+  "constants.attrSex": "dataValues[1].dataElement",
+  "constants.attrResults": "dataValues[2].dataElement",
+  "constants.attrDateTestSubmission": "dataValues[3].dataElement",
+  "constants.attrDateTestRTRI": "dataValues[4].dataElement",
+  "requestBody.originalBody.data[0].age": "dataValues[0].value",
+  "requestBody.originalBody.data[0].sex": {
+    "key": "dataValues[1].value",
+    "transform": {
+      "function": "mapCodes",
+      "parameters": {
+        "female": "FEMALE",
+        "male": "MALE",
+        "other": "OTHER",
+        "default": "UNKNOWN",
+        "null": null
+      }
+    }
+  },
+  "requestBody.originalBody.data[0].rtri_result":  {
+    "key": "dataValues[2].value",
+    "transform": {
+      "function": "mapCodes",
+      "parameters": {
+        "recent": "RTRI_RECENT",
+        "long_term": "RTRI_LONG_TERM",
+        "inconclusive": "RTRI_INCONCLUSIVE",
+        "null": null
+      }
+    }
+  },
+  "requestBody.originalBody.data[0].submission_date": "dataValues[3].value",
+  "requestBody.originalBody.data[0].rtri_testdate": "dataValues[4].value",
+  "requestBody.originalBody.data[0].rtri_testdate": "eventDate"
+}

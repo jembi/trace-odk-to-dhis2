@@ -70,12 +70,13 @@ services:
 
   mapper:
     container_name: mapper
-    image: jembi/openhim-mediator-mapping:v0.1.0
+    image: jembi/openhim-mediator-mapping:v0.2.0
     restart: on-failure
     environment:
       - OPENHIM_URL=https://core:8080
       - OPENHIM_USERNAME=root@openhim.org
       - OPENHIM_PASSWORD=trace101
+      - VALIDATION_ACCEPT_NULL_VALUES=true
     ports:
       - "3003:3003"
     volumes:

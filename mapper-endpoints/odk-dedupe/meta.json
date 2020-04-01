@@ -1,0 +1,48 @@
+{
+  "name": "ODK to DHIS2 Tracker - Dedupe",
+  "endpoint": {
+    "pattern": "/odk-dedupe"
+  },
+  "transformation": {
+    "input": "JSON",
+    "output": "JSON"
+  },
+  "requests": {
+    "lookup": [
+      {
+        "id": "dedupeLookup",
+        "config": {
+          "method": "get",
+          "url": "http://dedupe:3310/verify",
+          "headers": {
+            "Content-Type": "application/json"
+          },
+          "params": {
+            "nationalId": {
+              "path": "payload.originalBody.data[0].id_number",
+              "prefix": "nationalId",
+              "postfix": null
+            },
+            "healthId": {
+              "path": "payload.originalBody.data[0].health_id",
+              "prefix": "healthId",
+              "postfix": null
+            }
+          }
+        }
+      }
+    ],
+    "response": [
+      {
+        "id": "dhis2import",
+        "config": {
+          "method": "post",
+          "url": "http://localhost:3003/odk-to-dhis",
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        }
+      }
+    ]
+  }
+}
