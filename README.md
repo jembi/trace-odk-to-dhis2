@@ -59,7 +59,7 @@ Useful Links:
 
 Useful Links:
 
-- [Mapping Mediator](https://github.com/jembi/openhim-mediator-mapping)
+- [Mapping Mediator Repo](https://github.com/jembi/openhim-mediator-mapping)
 - [Documentation](https://jembi.github.io/openhim-mediator-mapping/)
 
 ### Accessing the **Mapping Mediator**
