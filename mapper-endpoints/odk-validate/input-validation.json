@@ -25,7 +25,8 @@
                 "type": "string"
               },
               "rtri_result": {
-                "type": "string"
+                "type": "string",
+                "enum": ["recent", "long_term", "inconclusive"]
               },
               "facility_id": {
                 "type": "string"
