@@ -10,7 +10,7 @@
             "type": "object",
             "properties": {
               "id_number": {
-                "type": "number"
+                "type": "string"
               },
               "age": {
                 "type": "number",
