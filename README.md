@@ -64,7 +64,7 @@ Useful Links:
 
 ### Accessing the **Mapping Mediator**
 
-- url: <http://localhost:3003/endpoint>
+- url: <http://localhost:3003/{endpoint}>
 
 ## DHIS2
 
