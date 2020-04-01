@@ -39,7 +39,7 @@
                 "type": "string"
               }
             },
-            "required": ["id_number", "age", "sex", "hiv_status", "rtri_result", "facility_id", "submission_date", "rtri_testdate"]
+            "required": ["id_number", "age", "sex", "rtri_result", "facility_id", "submission_date", "rtri_testdate"]
           }
         }
       }
