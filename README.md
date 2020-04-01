@@ -55,6 +55,17 @@ Useful Links:
 - Username: **root@openhim.org**
 - Password: **trace101**
 
+## Mapping Mediator
+
+Useful Links:
+
+- [Mapping Mediator](https://github.com/jembi/openhim-mediator-mapping)
+- [Documentation](https://jembi.github.io/openhim-mediator-mapping/)
+
+### Accessing the **Mapping Mediator**
+
+- url: <http://localhost:3003/endpoint>
+
 ## DHIS2
 
 Useful Links:
