@@ -33,7 +33,7 @@
               },
               "facility_id": {
                 "type": "string",
-                "pattern": "^\\d{6}$"
+                "pattern": "^\\d$"
               },
               "submission_date": {
                 "type": "string"
