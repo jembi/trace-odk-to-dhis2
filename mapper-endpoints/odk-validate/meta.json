@@ -1,0 +1,24 @@
+{
+  "name": "ODK to DHIS2 Tracker - Validate",
+  "endpoint": {
+    "pattern": "/odk"
+  },
+  "transformation": {
+    "input": "JSON",
+    "output": "JSON"
+  },
+  "requests": {
+    "response": [
+      {
+        "id": "odkDedupeLookup",
+        "config": {
+          "method": "post",
+          "url": "http://localhost:3003/odk-dedupe",
+          "headers": {
+            "Content-Type": "application/json"
+          }
+        }
+      }
+    ]
+  }
+}

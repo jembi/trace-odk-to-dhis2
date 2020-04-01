@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "requestBody": {
+      "type": "object",
+      "properties": {
+        "dedupeLookup": {
+          "type": "object",
+          "properties": {
+            "identifierExists": {
+              "type": "boolean",
+              "enum": [false]
+            }
+          },
+          "required": ["identifierExists"],
+          "errorMessage": "The identifier/s has already been processed."
+        }
+      }
+    }
+  }
+}
