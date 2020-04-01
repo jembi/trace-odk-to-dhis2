@@ -13,7 +13,7 @@
         "id": "dedupeLookup",
         "config": {
           "method": "get",
-          "url": "http://localhost:3310/verify",
+          "url": "http://dedupe:3310/verify",
           "headers": {
             "Content-Type": "application/json"
           },
