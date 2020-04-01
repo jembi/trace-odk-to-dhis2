@@ -22,7 +22,8 @@
                 "enum": ["female", "male", "other"]
               },
               "health_id": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "hiv_status": {
                 "type": "string"

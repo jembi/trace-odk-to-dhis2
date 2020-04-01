@@ -76,6 +76,7 @@ services:
       - OPENHIM_URL=https://core:8080
       - OPENHIM_USERNAME=root@openhim.org
       - OPENHIM_PASSWORD=trace101
+      - VALIDATION_ACCEPT_NULL_VALUES=true
     ports:
       - "3003:3003"
     volumes:
