@@ -13,7 +13,7 @@
         "id": "dhisFacility",
         "config": {
           "method": "get",
-          "url": "http://localhost:8081/api/organisationUnits",
+          "url": "http://dhis-web:8080/api/organisationUnits",
           "headers": {
             "Content-Type": "application/json",
             "Authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
