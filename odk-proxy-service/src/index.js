@@ -11,18 +11,20 @@ const openhim = require('./openhim')
 
 const app = express()
 
-const errorHandler = (err, req, res, next) => {
-  res.status(err.status || 500);
+const errorHandler = (err, req, res) => {
+  res.status(err.status || 500)
   res.json({
     message: err.message,
     error: err
   })
 }
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(bodyParser.json())
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+)
 
 app.post('/odk', function(req, res) {
   if (isBodyEmpty(req)) {
@@ -36,7 +38,7 @@ app.post('/odk', function(req, res) {
 
   // send request to mapper
   sendRequest(req)
-  
+
   // respond to ODK with 202
   var mediatorResponse = {
     'x-mediator-urn': openhim.getApiOpts().urn,
@@ -48,8 +50,13 @@ app.post('/odk', function(req, res) {
     }
   }
 
-  logger.info(`Request sent for processing: ${req.headers['x-openhim-transactionid']}`)
-  res.status(202).type('application/json+openhim').send(mediatorResponse)
+  logger.info(
+    `Request sent for processing: ${req.headers['x-openhim-transactionid']}`
+  )
+  res
+    .status(202)
+    .type('application/json+openhim')
+    .send(mediatorResponse)
 })
 
 app.use(errorHandler)

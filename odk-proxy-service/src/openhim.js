@@ -8,7 +8,7 @@ const path = require('path')
 const logger = require('./logger')
 const config = require('./config')
 
-let mediatorConfigJson, readError
+let mediatorConfigJson
 
 try {
   const mediatorConfigFile = fs.readFileSync(
@@ -16,7 +16,6 @@ try {
   )
   mediatorConfigJson = JSON.parse(mediatorConfigFile)
 } catch (err) {
-  readError = err.message
   logger.error(`Mediator config file could not be retrieved: ${err.message}`)
 }
 
@@ -47,11 +46,11 @@ exports.updateTx = (res, body, orchestrations, transactionId) => {
   // determine transaction status
   let status = ''
   if (200 <= res.status && res.status <= 299) {
-    status = 'Successful';
+    status = 'Successful'
   } else if (400 <= res.status && res.status <= 499) {
-    status = 'Completed';
+    status = 'Completed'
   } else {
-    status = 'Failed';
+    status = 'Failed'
   }
 
   const update = {
@@ -68,15 +67,22 @@ exports.updateTx = (res, body, orchestrations, transactionId) => {
     }
   }
 
-  axios.put(openhimConfig.apiURL + '/transactions/' + transactionId, update, {auth: { username: openhimConfig.username, password: openhimConfig.password }})
-  .then(response => {
-    if (response.status !== 200) {
-      return logger.info('Unable to save updated transaction to OpenHIM-core, received status code ' + response.status)
-    }
-    logger.info('Successfully updated transaction with id ' + transactionId)
-  }).catch(error => {
-    logger.error(error)
-  })
+  axios
+    .put(openhimConfig.apiURL + '/transactions/' + transactionId, update, {
+      auth: {username: openhimConfig.username, password: openhimConfig.password}
+    })
+    .then(response => {
+      if (response.status !== 200) {
+        return logger.info(
+          'Unable to save updated transaction to OpenHIM-core, received status code ' +
+            response.status
+        )
+      }
+      logger.info('Successfully updated transaction with id ' + transactionId)
+    })
+    .catch(error => {
+      logger.error(error)
+    })
 }
 
 exports.getApiOpts = () => {
