@@ -22,7 +22,18 @@
       }
     }
   },
-  "requestBody.originalBody.data[0].rtri_result": "dataValues[2].value",
+  "requestBody.originalBody.data[0].rtri_result":  {
+    "key": "dataValues[2].value",
+    "transform": {
+      "function": "mapCodes",
+      "parameters": {
+        "recent": "RTRI_RECENT",
+        "long_term": "RTRI_LONG_TERM",
+        "inconclusive": "RTRI_INCONCLUSIVE",
+        "null": null
+      }
+    }
+  },
   "requestBody.originalBody.data[0].submission_date": "dataValues[3].value",
   "requestBody.originalBody.data[0].rtri_testdate": "dataValues[4].value",
   "requestBody.originalBody.data[0].rtri_testdate": "eventDate"
