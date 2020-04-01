@@ -29,7 +29,8 @@
                 "enum": ["recent", "long_term", "inconclusive"]
               },
               "facility_id": {
-                "type": "string"
+                "type": "string",
+                "pattern": "^\\d{6}$"
               },
               "submission_date": {
                 "type": "string"
