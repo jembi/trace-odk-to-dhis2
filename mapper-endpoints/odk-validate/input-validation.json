@@ -18,7 +18,8 @@
                 "maximum": 120
               },
               "sex": {
-                "type": "string"
+                "type": "string",
+                "enum": ["female", "male", "other"]
               },
               "health_id": {
                 "type": "string"
