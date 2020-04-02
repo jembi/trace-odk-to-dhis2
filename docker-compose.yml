@@ -107,7 +107,7 @@ services:
     container_name: odk-proxy
     build: odk-proxy-service/.
     restart: on-failure
-    environment: 
+    environment:
       - OPENHIM_URL=https://openhim-core:8080
       - OPENHIM_USERNAME=root@openhim.org
       - OPENHIM_PASSWORD=trace101

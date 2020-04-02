@@ -4,7 +4,7 @@ This service is not meant to be implemented into production!
 
 This service is intended as an ODK proxy for responding with an 200 Accepted code
 
-ODK only accepts a status code of 200 otherwise it sees the request as failed and tries sending it again
+ODK only accepts a status code in the 2xx range, otherwise it sees the request as failed and tries sending it again
 
 ## Setup
 
