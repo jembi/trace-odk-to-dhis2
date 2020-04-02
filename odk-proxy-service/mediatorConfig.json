@@ -1,0 +1,14 @@
+{
+  "urn": "urn:mediator:odk_proxy_service",
+  "version": "1.0.0",
+  "name": "ODK Proxy Service",
+  "description": "A Proxy Service for processing the ODK request asynchronously",
+  "endpoints": [
+    {
+      "name": "ODK Proxy Service",
+      "host": "mapper",
+      "port": "3003",
+      "type": "http"
+    }
+  ]
+}

@@ -19,7 +19,8 @@
               },
               "sex": {
                 "type": "string",
-                "enum": ["female", "male", "other"]
+                "enum": ["female", "male", "other"],
+                "errorMessage": "Allowed values: [\"female\", \"male\", \"other\"]"
               },
               "health_id": {
                 "type": "string",
@@ -30,7 +31,8 @@
               },
               "rtri_result": {
                 "type": "string",
-                "enum": ["recent", "long_term", "inconclusive"]
+                "enum": ["recent", "long_term", "inconclusive"],
+                "errorMessage": "Allowed values: [\"recent\", \"long_term\", \"inconclusive\"]"
               },
               "facility_id": {
                 "type": "string",

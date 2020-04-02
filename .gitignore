@@ -1,5 +1,6 @@
 data/
 dedupe-service/node_modules
+odk-proxy-service/node_modules
 
 dedupe-service/identifiers/*
 !dedupe-service/identifiers/README

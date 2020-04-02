@@ -9,11 +9,11 @@
           "properties": {
             "identifierExists": {
               "type": "boolean",
-              "enum": [false]
+              "enum": [false],
+              "errorMessage": "The identifier/s has already been processed."
             }
           },
-          "required": ["identifierExists"],
-          "errorMessage": "The identifier/s has already been processed."
+          "required": ["identifierExists"]
         }
       }
     }

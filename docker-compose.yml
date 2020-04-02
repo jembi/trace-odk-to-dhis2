@@ -102,3 +102,21 @@ services:
       interval: 10s
       timeout: 10s
       retries: 12
+
+  odk-proxy:
+    container_name: odk-proxy
+    build: odk-proxy-service/.
+    restart: on-failure
+    environment:
+      - OPENHIM_URL=https://openhim-core:8080
+      - OPENHIM_USERNAME=root@openhim.org
+      - OPENHIM_PASSWORD=trace101
+      - ODK_MAPPER_URL=http://mapper:3003/odk
+      - NODE_TLS_REJECT_UNAUTHORIZED=0
+    ports:
+      - "4410:4410"
+    healthcheck:
+      test: ['CMD', 'nc', '-z', 'localhost', '4410']
+      interval: 10s
+      timeout: 10s
+      retries: 12
