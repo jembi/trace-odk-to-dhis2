@@ -4,6 +4,8 @@
 
 The following scripts will set up the entire tutorial architecture. Very few manual steps are required. To set up the system from scratch should take less than 30 minutes on a decent internet connection. You will require about 3GB of bandwidth.
 
+[See a full demonstration on YouTube](https://youtu.be/pplyzXxG-3g)
+
 Prerequisites:
 
 - Ubuntu 18.04 Desktop
