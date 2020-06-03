@@ -1,5 +1,7 @@
 # ODK to DHIS2 Infrastructure Scripts
 
+**NOT FOR PRODUCTION USE**
+
 The following scripts will set up the entire tutorial architecture. Very few manual steps are required. To set up the system from scratch should take less than 30 minutes on a decent internet connection. You will require about 3GB of bandwidth.
 
 Prerequisites:
